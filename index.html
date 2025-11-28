@@ -1,13 +1,228 @@
-<!-- index.html -->
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>My GitHub Site</title>
-  </head>
-  <body>
-    <h1>Hello, world 👋</h1>
-    <p>Deployed with GitHub Pages.</p>
-  </body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="page-title">PhD Student</title>
+  <style>
+    /* Single color scheme: left pane dark, right pane light */
+    :root {
+      --bg: #fafafa;           /* light right pane */
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #0a66c2;
+      --border: #d0d0d0;
+      --side-bg: #1e293b;      /* dark left pane */
+      --side-text: #f1f5f9;
+    }
 
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Left sidebar */
+    .sidebar {
+      background: var(--side-bg);
+      color: var(--side-text);
+      border-right: 1px solid var(--border);
+      padding: 40px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+
+    .avatar {
+      width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+
+    .name { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 6px; }
+    .affil { text-align: center; color: var(--side-text); opacity: 0.8; font-size: 14px; margin-bottom: 14px; }
+
+    .links { text-align: center; font-size: 14px; }
+    .links a { color: var(--accent); text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+
+    /* Right main */
+    .main {
+      padding: 40px 60px;
+      max-width: 960px;
+      background: var(--bg);
+    }
+
+    h2 { border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-top: 32px; margin-bottom: 14px; }
+    p { margin: 10px 0; }
+
+    .paper { margin-bottom: 16px; }
+    .paper .title { font-weight: 600; }
+    .paper .meta { color: var(--muted); font-size: 14px; }
+    .actions a { color: var(--accent); text-decoration: none; }
+    .actions a:hover { text-decoration: underline; }
+
+    footer { color: var(--muted); font-size: 14px; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 10px; }
+
+    @media (max-width: 900px) {
+      body { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+      .main { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <!-- Just change image file in config.js; this src is a safe fallback -->
+    <img id="avatar" class="avatar" src="https://dummyimage.com/288x288/cccccc/555555.jpg&text=Photo" alt="Your headshot" />
+    <div id="name" class="name">Your Name</div>
+    <div id="affil" class="affil">PhD Student<br>Department<br>University</div>
+    <div class="links">
+      <a id="email-link" href="mailto:you@university.edu">you@university.edu</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section id="bio-section">
+      <h2>Bio</h2>
+      <div id="bio-text"></div>
+    </section>
+
+    <section id="preprints-section">
+      <h2>Preprints</h2>
+      <div id="preprints-list"></div>
+    </section>
+
+    <section id="publications-section">
+      <h2>Publications</h2>
+      <div id="publications-list"></div>
+    </section>
+
+    <section id="teaching-section">
+      <h2>Teaching</h2>
+      <div id="teaching-list"></div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> <span id="footer-name">Your Name</span>
+    </footer>
+  </main>
+
+  <!-- Your editable data lives in config.js -->
+  <script src="config.js?v=1"></script>
+  <script>
+    (function () {
+      const d = typeof SITE_DATA !== 'undefined' ? SITE_DATA : null;
+      if (!d) {
+        document.getElementById('bio-text').textContent = 'Add your data in config.js (SITE_DATA).';
+        document.getElementById('year').textContent = new Date().getFullYear();
+        return;
+      }
+
+      // Basic fields
+      document.title = d.pageTitle || (d.name ? d.name + ' — PhD Student' : 'PhD Student');
+      document.getElementById('page-title').textContent = document.title;
+      if (d.name) {
+        document.getElementById('name').textContent = d.name;
+        document.getElementById('footer-name').textContent = d.name;
+      }
+      if (d.avatar) {
+        document.getElementById('avatar').src = d.avatar;
+      }
+      if (d.affiliationHtml) {
+        document.getElementById('affil').innerHTML = d.affiliationHtml;
+      }
+      if (d.email) {
+        const el = document.getElementById('email-link');
+        el.href = 'mailto:' + d.email;
+        el.textContent = d.email;
+      }
+
+      // Bio
+      if (Array.isArray(d.bioParagraphs)) {
+        const bio = document.getElementById('bio-text');
+        bio.innerHTML = '';
+        d.bioParagraphs.forEach(text => {
+          const p = document.createElement('p');
+          p.innerHTML = text;
+          bio.appendChild(p);
+        });
+      }
+
+      // Helper to render paper lists
+      function renderPapers(containerId, items) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        if (!Array.isArray(items) || !items.length) {
+          const p = document.createElement('p');
+          p.textContent = '—';
+          container.appendChild(p);
+          return;
+        }
+        items.forEach(paper => {
+          const wrap = document.createElement('div');
+          wrap.className = 'paper';
+
+          const title = document.createElement('div');
+          title.className = 'title';
+          title.textContent = paper.title || '';
+          wrap.appendChild(title);
+
+          const meta = document.createElement('div');
+          meta.className = 'meta';
+          meta.textContent = paper.meta || '';
+          wrap.appendChild(meta);
+
+          if (paper.arxiv) {
+            const actions = document.createElement('p');
+            actions.className = 'actions';
+            const a = document.createElement('a');
+            a.href = paper.arxivUrl || paper.arxiv;
+            a.textContent = 'arXiv';
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            actions.appendChild(a);
+            wrap.appendChild(actions);
+          }
+
+          container.appendChild(wrap);
+        });
+      }
+
+      renderPapers('preprints-list', d.preprints);
+      renderPapers('publications-list', d.publications);
+
+      // Teaching
+      (function renderTeaching() {
+        const container = document.getElementById('teaching-list');
+        container.innerHTML = '';
+        if (!Array.isArray(d.teaching) || !d.teaching.length) {
+          const p = document.createElement('p');
+          p.textContent = '—';
+          container.appendChild(p);
+          return;
+        }
+        const ul = document.createElement('ul');
+        d.teaching.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      })();
+
+      document.getElementById('year').textContent = (d.lastUpdatedYear || new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
