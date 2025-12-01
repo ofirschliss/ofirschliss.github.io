@@ -63,7 +63,13 @@
       background: var(--bg);
     }
 
-    h2 { border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-top: 32px; margin-bottom: 14px; }
+    h2 {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 32px;
+      margin-bottom: 14px;
+    }
+
     p { margin: 10px 0; }
 
     .paper { margin-bottom: 16px; }
@@ -72,11 +78,22 @@
     .actions a { color: var(--accent); text-decoration: none; }
     .actions a:hover { text-decoration: underline; }
 
-    footer { color: var(--muted); font-size: 14px; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 10px; }
+    footer {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
 
     @media (max-width: 900px) {
       body { grid-template-columns: 1fr; }
-      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
       .main { padding: 24px; }
     }
   </style>
@@ -84,7 +101,9 @@
 <body>
   <aside class="sidebar">
     <!-- Just change image file in config.js; this src is a safe fallback -->
-    <img id="avatar" class="avatar" src="https://dummyimage.com/288x288/cccccc/555555.jpg&text=Photo" alt="Your headshot" />
+    <img id="avatar" class="avatar"
+         src="https://dummyimage.com/288x288/cccccc/555555.jpg&text=Photo"
+         alt="Your headshot" />
     <div id="name" class="name">Your Name</div>
     <div id="affil" class="affil">PhD Student<br>Department<br>University</div>
     <div class="links">
@@ -124,14 +143,17 @@
     (function () {
       const d = typeof SITE_DATA !== 'undefined' ? SITE_DATA : null;
       if (!d) {
-        document.getElementById('bio-text').textContent = 'Add your data in config.js (SITE_DATA).';
+        document.getElementById('bio-text').textContent =
+          'Add your data in config.js (SITE_DATA).';
         document.getElementById('year').textContent = new Date().getFullYear();
         return;
       }
 
       // Basic fields
-      document.title = d.pageTitle || (d.name ? d.name + ' — PhD Student' : 'PhD Student');
+      document.title =
+        d.pageTitle || (d.name ? d.name + ' — PhD Student' : 'PhD Student');
       document.getElementById('page-title').textContent = document.title;
+
       if (d.name) {
         document.getElementById('name').textContent = d.name;
         document.getElementById('footer-name').textContent = d.name;
@@ -159,7 +181,7 @@
         });
       }
 
-      // Helper to render paper lists
+      // Helper to render papers
       function renderPapers(containerId, items) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
@@ -169,20 +191,46 @@
           container.appendChild(p);
           return;
         }
+
         items.forEach(paper => {
           const wrap = document.createElement('div');
           wrap.className = 'paper';
 
+          // Title
           const title = document.createElement('div');
           title.className = 'title';
           title.textContent = paper.title || '';
           wrap.appendChild(title);
 
-          const meta = document.createElement('div');
-          meta.className = 'meta';
-          meta.textContent = paper.meta || '';
-          wrap.appendChild(meta);
+          // ONE meta line: authors [· conference]
+          const metaLine = document.createElement('div');
+          metaLine.className = 'meta';
 
+          let html = '';
+          if (paper.authors) {
+            html += paper.authors;
+          }
+
+          if (paper.conference && paper.conference.name) {
+            if (html.length) {
+              html += ' · ';
+            }
+            if (paper.conference.url) {
+              html +=
+                '<a href="' +
+                paper.conference.url +
+                '" target="_blank" rel="noopener noreferrer">' +
+                paper.conference.name +
+                '</a>';
+            } else {
+              html += paper.conference.name;
+            }
+          }
+
+          metaLine.innerHTML = html;
+          wrap.appendChild(metaLine);
+
+          // arXiv link (if provided)
           if (paper.arxiv) {
             const actions = document.createElement('p');
             actions.className = 'actions';
@@ -221,7 +269,8 @@
         container.appendChild(ul);
       })();
 
-      document.getElementById('year').textContent = (d.lastUpdatedYear || new Date().getFullYear());
+      document.getElementById('year').textContent =
+        d.lastUpdatedYear || new Date().getFullYear();
     })();
   </script>
 </body>

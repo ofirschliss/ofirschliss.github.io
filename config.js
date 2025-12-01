@@ -19,7 +19,8 @@ const SITE_DATA = {
   preprints: [
     {
       title: "The Hidden Cost of Approximation in Online Mirror Descent",
-      meta: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour · Preliminary version at OPT 2025",
+      authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
+      conference: {name: "Preliminary version at OPT 2025"}, // null for no conference
       arxiv: "https://arxiv.org/abs/2511.22283"
     }
     // Add more objects here
@@ -29,17 +30,20 @@ const SITE_DATA = {
   publications: [
     {
       title: "Delay as Payoff in MAB",
-      meta: "Ofir Schlisselberg, Ido Cohen, Tal Lancewicki, Yishay Mansour · AAAI 2025",
+      authors: "Ofir Schlisselberg, Ido Cohen, Tal Lancewicki, Yishay Mansour",
+      conference: {name: "AAAI 2025", url: "https://ojs.aaai.org/index.php/AAAI/article/view/34237"}, // null for no conference
       arxiv: "https://arxiv.org/abs/2408.15158" // or leave empty if no arXiv
     },
     {
       title: "The impact of allocation strategies in subset learning on the expressive power of neural networks",
-      meta: "Ofir Schlisselberg, Ran Darshan · ICLR 2025",
+      authors: "Ofir Schlisselberg, Ran Darshan",
+      conference: {name: "ICLR 2025", url: "https://proceedings.iclr.cc/paper_files/paper/2025/hash/a1563f83b580b83d2836abc6ea03280a-Abstract-Conference.html"}, // null for no conference
       arxiv: "https://arxiv.org/abs/2502.06300" // or leave empty if no arXiv
     },
     {
       title: "Improved Best-of-Both-Worlds Regret for Bandits with Delayed Feedback",
-      meta: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour · NeurIPS 2025",
+      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
+      conference: {name: "NeurIPS 2025"}, // null for no conference
       arxiv: "https://arxiv.org/abs/2505.24193" // or leave empty if no arXiv
     },
   ],
