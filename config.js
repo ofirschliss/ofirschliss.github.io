@@ -20,7 +20,7 @@ const SITE_DATA = {
     {
       title: "The Hidden Cost of Approximation in Online Mirror Descent",
       meta: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour · Preliminary version at OPT 2025",
-      arxiv: ""
+      arxiv: "https://arxiv.org/abs/2511.22283"
     }
     // Add more objects here
   ],
