@@ -18,21 +18,27 @@ const SITE_DATA = {
   // Preprints: each item gets a title, meta line, and arXiv link
   preprints: [
     {
+      title: "Online Learning in MDPs with Partially Adversarial Transitions and Losses",
+      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansourr",
+      conference: null, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2602.09474"
+    },
+    {
       title: "The Hidden Cost of Approximation in Online Mirror Descent",
       authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
       conference: {name: "Preliminary version at OPT 2025"}, // null for no conference
       arxiv: "https://arxiv.org/pdf/2511.22283"
-    }
+    },
     // Add more objects here
   ],
 
   // Publications
   publications: [
     {
-      title: "Delay as Payoff in MAB",
-      authors: "Ofir Schlisselberg, Ido Cohen, Tal Lancewicki, Yishay Mansour",
-      conference: {name: "AAAI 2025", url: "https://ojs.aaai.org/index.php/AAAI/article/view/34237"}, // null for no conference
-      arxiv: "https://arxiv.org/pdf/2408.15158" // or leave empty if no arXiv
+      title: "Improved Best-of-Both-Worlds Regret for Bandits with Delayed Feedback",
+      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
+      conference: {name: "NeurIPS 2025"}, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2505.24193" // or leave empty if no arXiv
     },
     {
       title: "The impact of allocation strategies in subset learning on the expressive power of neural networks",
@@ -41,10 +47,10 @@ const SITE_DATA = {
       arxiv: "https://arxiv.org/pdf/2502.06300" // or leave empty if no arXiv
     },
     {
-      title: "Improved Best-of-Both-Worlds Regret for Bandits with Delayed Feedback",
-      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
-      conference: {name: "NeurIPS 2025"}, // null for no conference
-      arxiv: "https://arxiv.org/pdf/2505.24193" // or leave empty if no arXiv
+      title: "Delay as Payoff in MAB",
+      authors: "Ofir Schlisselberg, Ido Cohen, Tal Lancewicki, Yishay Mansour",
+      conference: {name: "AAAI 2025", url: "https://ojs.aaai.org/index.php/AAAI/article/view/34237"}, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2408.15158" // or leave empty if no arXiv
     },
   ],
 
