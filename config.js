@@ -19,7 +19,7 @@ const SITE_DATA = {
   preprints: [
     {
       title: "Online Learning in MDPs with Partially Adversarial Transitions and Losses",
-      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansourr",
+      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
       conference: null, // null for no conference
       arxiv: "https://arxiv.org/pdf/2602.09474"
     },
