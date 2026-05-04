@@ -23,17 +23,17 @@ const SITE_DATA = {
       conference: null, // null for no conference
       arxiv: "https://arxiv.org/pdf/2602.09474"
     },
-    {
-      title: "The Hidden Cost of Approximation in Online Mirror Descent",
-      authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
-      conference: {name: "Preliminary version at OPT 2025"}, // null for no conference
-      arxiv: "https://arxiv.org/pdf/2511.22283"
-    },
     // Add more objects here
   ],
 
   // Publications
   publications: [
+    {
+      title: "The Hidden Cost of Approximation in Online Mirror Descent",
+      authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
+      conference: {name: "COLT 2026"}, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2511.22283"
+    },
     {
       title: "Improved Best-of-Both-Worlds Regret for Bandits with Delayed Feedback",
       authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
