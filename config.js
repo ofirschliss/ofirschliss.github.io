@@ -18,8 +18,26 @@ const SITE_DATA = {
   // Preprints: each item gets a title, meta line, and arXiv link
   preprints: [
     {
+      title: "Near-Optimal Stochastic Linear Bandits with Delay",
+      authors: "Ofir Schlisselberg, Mengxiao Zhang, Yishay Mansour",
+      conference: null, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2606.16656"
+    },
+    {
+      title: "Mirror Descent Beyond Euclidean Stability: An Exponential Separation in Initialization Sensitivity ",
+      authors: "Shira Vansover-Hager, Matan Schliserman, Ofir Schlisselberg, Tomer Koren",
+      conference: null, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2606.11431"
+    },
+    {
+      title: "Collaborating in Multi-Armed Bandits with Strategic Agents",
+      authors: "Idan Barnea, Ofir Schlisselberg, Yishay Mansour",
+      conference: null, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2605.13145"
+    },
+    {
       title: "Online Learning in MDPs with Partially Adversarial Transitions and Losses",
-      authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
+      authors: "Ofir Schlisselberg, Tal Lancewicki, Yishay Mansour",
       conference: null, // null for no conference
       arxiv: "https://arxiv.org/pdf/2602.09474"
     },
@@ -48,7 +66,7 @@ const SITE_DATA = {
     },
     {
       title: "Delay as Payoff in MAB",
-      authors: "Ofir Schlisselberg, Ido Cohen, Tal Lancewicki, Yishay Mansour",
+      authors: "Ofir Schlisselberg*, Ido Cohen*, Tal Lancewicki, Yishay Mansour",
       conference: {name: "AAAI 2025", url: "https://ojs.aaai.org/index.php/AAAI/article/view/34237"}, // null for no conference
       arxiv: "https://arxiv.org/pdf/2408.15158" // or leave empty if no arXiv
     },
