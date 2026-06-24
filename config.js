@@ -55,7 +55,7 @@ const SITE_DATA = {
     {
       title: "Improved Best-of-Both-Worlds Regret for Bandits with Delayed Feedback",
       authors: "Ofir Schlisselberg, Tal Lancewicki, Peter Auer, Yishay Mansour",
-      conference: {name: "NeurIPS 2025"}, // null for no conference
+      conference: {name: "NeurIPS 2025", url: "https://proceedings.neurips.cc/paper_files/paper/2025/file/02f0ac0a323dc17d964d4bbf8a62e01b-Paper-Conference.pdf"}, // null for no conference
       arxiv: "https://arxiv.org/pdf/2505.24193" // or leave empty if no arXiv
     },
     {
