@@ -12,7 +12,8 @@ const SITE_DATA = {
   // Bio: each string is a paragraph (HTML allowed)
   bioParagraphs: [
     "I am a PhD student in the Department of Computer Science at Tel Aviv University, advised by <a href='https://www.mansouryishay.sites.tau.ac.il/'>Prof. Yishay Mansour</a>. I completed my MSc under the supervision of <a href='https://darshanlab.sites.tau.ac.il/'>Dr. Ran Darshan</a> and before that, obtained a BSc in Computer Science from the Open University of Israel.",
-    "My research focuses on online learning and online optimization, with emphasis on Multi Armed Bandit and Markov Decision Process."
+    "My research focuses on online learning and online optimization, with emphasis on Multi Armed Bandit and Markov Decision Process.",
+    "<a href='https://scholar.google.com/citations?user=sYngpysAAAAJ&hl=en'>Google Scholar</a>"
   ],
 
   // Preprints: each item gets a title, meta line, and arXiv link
