@@ -50,7 +50,7 @@ const SITE_DATA = {
     {
       title: "The Hidden Cost of Approximation in Online Mirror Descent",
       authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
-      conference: {name: "COLT 2026"}, // null for no conference
+      conference: {name: "COLT 2026", url: "https://proceedings.mlr.press/v336/schlisselberg26a.html"}, // null for no conference
       arxiv: "https://arxiv.org/pdf/2511.22283"
     },
     {
