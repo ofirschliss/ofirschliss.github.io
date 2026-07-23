@@ -32,7 +32,7 @@ const SITE_DATA = {
     },
     {
       title: "Collaborating in Multi-Armed Bandits with Strategic Agents",
-      authors: "Idan Barnea, Ofir Schlisselberg, Yishay Mansour",
+      authors: "Idan Barnea*, Ofir Schlisselberg*, Yishay Mansour",
       conference: null, // null for no conference
       arxiv: "https://arxiv.org/pdf/2605.13145"
     },
