@@ -19,18 +19,6 @@ const SITE_DATA = {
   // Preprints: each item gets a title, meta line, and arXiv link
   preprints: [
     {
-      title: "Near-Optimal Stochastic Linear Bandits with Delay",
-      authors: "Ofir Schlisselberg, Mengxiao Zhang, Yishay Mansour",
-      conference: null, // null for no conference
-      arxiv: "https://arxiv.org/pdf/2606.16656"
-    },
-    {
-      title: "Mirror Descent Beyond Euclidean Stability: An Exponential Separation in Initialization Sensitivity ",
-      authors: "Shira Vansover-Hager, Matan Schliserman, Ofir Schlisselberg, Tomer Koren",
-      conference: null, // null for no conference
-      arxiv: "https://arxiv.org/pdf/2606.11431"
-    },
-    {
       title: "Collaborating in Multi-Armed Bandits with Strategic Agents",
       authors: "Idan Barnea*, Ofir Schlisselberg*, Yishay Mansour",
       conference: null, // null for no conference
@@ -47,6 +35,18 @@ const SITE_DATA = {
 
   // Publications
   publications: [
+    {
+      title: "Near-Optimal Stochastic Linear Bandits with Delay",
+      authors: "Ofir Schlisselberg, Mengxiao Zhang, Yishay Mansour",
+      conference: {name: "NeurIPS 2026"}, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2606.16656"
+    },
+    {
+      title: "Mirror Descent Beyond Euclidean Stability: An Exponential Separation in Initialization Sensitivity ",
+      authors: "Shira Vansover-Hager, Matan Schliserman, Ofir Schlisselberg, Tomer Koren",
+      conference: {name: "NeurIPS 2026"}, // null for no conference
+      arxiv: "https://arxiv.org/pdf/2606.11431"
+    },
     {
       title: "The Hidden Cost of Approximation in Online Mirror Descent",
       authors: "Ofir Schlisselberg, Uri Sherman, Tomer Koren, Yishay Mansour",
