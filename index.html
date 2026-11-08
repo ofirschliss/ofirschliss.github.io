@@ -1,277 +1,60 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title id="page-title">PhD Student</title>
-  <style>
-    /* Single color scheme: left pane dark, right pane light */
-    :root {
-      --bg: #fafafa;           /* light right pane */
-      --text: #1a1a1a;
-      --muted: #555;
-      --accent: #0a66c2;
-      --border: #d0d0d0;
-      --side-bg: #1e293b;      /* dark left pane */
-      --side-text: #f1f5f9;
-    }
-
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      min-height: 100vh;
-    }
-
-    /* Left sidebar */
-    .sidebar {
-      background: var(--side-bg);
-      color: var(--side-text);
-      border-right: 1px solid var(--border);
-      padding: 40px 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-    }
-
-    .avatar {
-      width: 144px;
-      height: 144px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 18px;
-    }
-
-    .name { font-size: 24px; font-weight: 700; text-align: center; margin-bottom: 6px; }
-    .affil { text-align: center; color: var(--side-text); opacity: 0.8; font-size: 14px; margin-bottom: 14px; }
-
-    .links { text-align: center; font-size: 14px; }
-    .links a { color: var(--accent); text-decoration: none; }
-    .links a:hover { text-decoration: underline; }
-
-    /* Right main */
-    .main {
-      padding: 40px 60px;
-      max-width: 960px;
-      background: var(--bg);
-    }
-
-    h2 {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
-      margin-top: 32px;
-      margin-bottom: 14px;
-    }
-
-    p { margin: 10px 0; }
-
-    .paper { margin-bottom: 16px; }
-    .paper .title { font-weight: 600; }
-    .paper .meta { color: var(--muted); font-size: 14px; }
-    .actions a { color: var(--accent); text-decoration: none; }
-    .actions a:hover { text-decoration: underline; }
-
-    footer {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 32px;
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
-    }
-
-    @media (max-width: 900px) {
-      body { grid-template-columns: 1fr; }
-      .sidebar {
-        position: static;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-      .main { padding: 24px; }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ofir Schlisselberg is a Ph.D. researcher at Tel Aviv University studying online learning, bandits, games, and optimization.">
+  <meta name="theme-color" content="#203a3e">
+  <title>Ofir Schlisselberg | Online Learning &amp; Games</title>
+  <link rel="stylesheet" href="styles.css?v=86147dc275">
+  <script src="config.js?v=296357b584" defer></script>
+  <script src="site.js?v=1555b40ba3" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <aside class="sidebar">
-    <!-- Just change image file in config.js; this src is a safe fallback -->
-    <img id="avatar" class="avatar"
-         src="https://dummyimage.com/288x288/cccccc/555555.jpg&text=Photo"
-         alt="Your headshot" />
-    <div id="name" class="name">Your Name</div>
-    <div id="affil" class="affil">PhD Student<br>Department<br>University</div>
-    <div class="links">
-      <a id="email-link" href="mailto:you@university.edu">you@university.edu</a>
+    <a class="identity" href="#research" aria-label="Ofir Schlisselberg, home">
+      <img id="avatar" class="avatar" src="avatar.jpeg" alt="Ofir Schlisselberg" width="160" height="160">
+      <span id="name" class="name">Ofir<br>Schlisselberg</span>
+    </a>
+    <p class="affiliation">Ph.D. student in Computer Science<br>Tel Aviv University</p>
+    <nav class="section-nav" aria-label="Page sections">
+      <a href="#research">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#preprints">Preprints</a>
+      <a href="#teaching">Teaching</a>
+    </nav>
+    <div class="sidebar-contact">
+      <p class="contact-label">Get in touch</p>
+      <a id="email-link" href="mailto:ofirs4@mail.tau.ac.il">ofirs4@mail.tau.ac.il</a>
+      <div id="profile-links" class="profile-links"></div>
     </div>
   </aside>
-
-  <main class="main">
-    <section id="bio-section">
-      <h2>Bio</h2>
-      <div id="bio-text"></div>
+  <main id="main">
+    <section id="research" class="intro-section" aria-labelledby="research-heading">
+      <p class="eyebrow">Research / Tel Aviv University</p>
+      <h1 id="research-heading">Ofir Schlisselberg</h1>
+      <p id="intro" class="intro"></p>
+      <div id="bio-text" class="bio"></div>
+      <p id="recognition" class="recognition"></p>
     </section>
-
-    <section id="preprints-section">
-      <h2>Preprints</h2>
-      <div id="preprints-list"></div>
-    </section>
-
-    <section id="publications-section">
-      <h2>Publications</h2>
+    <section id="publications" aria-labelledby="publications-heading">
+      <div class="section-heading">
+        <h2 id="publications-heading">Publications</h2>
+        <a class="text-link" href="https://scholar.google.com/citations?user=sYngpysAAAAJ&amp;hl=en">Google Scholar <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="contribution-note">* Equal contribution</p>
       <div id="publications-list"></div>
     </section>
-
-    <section id="teaching-section">
-      <h2>Teaching</h2>
-      <div id="teaching-list"></div>
+    <section id="preprints" aria-labelledby="preprints-heading">
+      <div class="section-heading"><h2 id="preprints-heading">Preprints</h2></div>
+      <div id="preprints-list"></div>
     </section>
-
-    <footer>
-      © <span id="year"></span> <span id="footer-name">Your Name</span>
-    </footer>
+    <section id="teaching" aria-labelledby="teaching-heading">
+      <div class="section-heading"><h2 id="teaching-heading">Teaching</h2></div>
+      <div id="teaching-list" class="teaching-list"></div>
+    </section>
+    <footer><span>© <span id="year">2026</span> Ofir Schlisselberg</span><a href="#research">Back to top ↑</a></footer>
   </main>
-
-  <!-- Your editable data lives in config.js -->
-  <script src="config.js?v=1"></script>
-  <script>
-    (function () {
-      const d = typeof SITE_DATA !== 'undefined' ? SITE_DATA : null;
-      if (!d) {
-        document.getElementById('bio-text').textContent =
-          'Add your data in config.js (SITE_DATA).';
-        document.getElementById('year').textContent = new Date().getFullYear();
-        return;
-      }
-
-      // Basic fields
-      document.title =
-        d.pageTitle || (d.name ? d.name + ' — PhD Student' : 'PhD Student');
-      document.getElementById('page-title').textContent = document.title;
-
-      if (d.name) {
-        document.getElementById('name').textContent = d.name;
-        document.getElementById('footer-name').textContent = d.name;
-      }
-      if (d.avatar) {
-        document.getElementById('avatar').src = d.avatar;
-      }
-      if (d.affiliationHtml) {
-        document.getElementById('affil').innerHTML = d.affiliationHtml;
-      }
-      if (d.email) {
-        const el = document.getElementById('email-link');
-        el.href = 'mailto:' + d.email;
-        el.textContent = d.email;
-      }
-
-      // Bio
-      if (Array.isArray(d.bioParagraphs)) {
-        const bio = document.getElementById('bio-text');
-        bio.innerHTML = '';
-        d.bioParagraphs.forEach(text => {
-          const p = document.createElement('p');
-          p.innerHTML = text;
-          bio.appendChild(p);
-        });
-      }
-
-      // Helper to render papers
-      function renderPapers(containerId, items) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = '';
-        if (!Array.isArray(items) || !items.length) {
-          const p = document.createElement('p');
-          p.textContent = '—';
-          container.appendChild(p);
-          return;
-        }
-
-        items.forEach(paper => {
-          const wrap = document.createElement('div');
-          wrap.className = 'paper';
-
-          // Title
-          const title = document.createElement('div');
-          title.className = 'title';
-          title.textContent = paper.title || '';
-          wrap.appendChild(title);
-
-          // ONE meta line: authors [· conference]
-          const metaLine = document.createElement('div');
-          metaLine.className = 'meta';
-
-          let html = '';
-          if (paper.authors) {
-            html += paper.authors;
-          }
-
-          if (paper.conference && paper.conference.name) {
-            if (html.length) {
-              html += ' · ';
-            }
-            if (paper.conference.url) {
-              html +=
-                '<a href="' +
-                paper.conference.url +
-                '" target="_blank" rel="noopener noreferrer">' +
-                paper.conference.name +
-                '</a>';
-            } else {
-              html += paper.conference.name;
-            }
-          }
-
-          metaLine.innerHTML = html;
-          wrap.appendChild(metaLine);
-
-          // arXiv link (if provided)
-          if (paper.arxiv) {
-            const actions = document.createElement('p');
-            actions.className = 'actions';
-            const a = document.createElement('a');
-            a.href = paper.arxivUrl || paper.arxiv;
-            a.textContent = 'arXiv';
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            actions.appendChild(a);
-            wrap.appendChild(actions);
-          }
-
-          container.appendChild(wrap);
-        });
-      }
-
-      renderPapers('preprints-list', d.preprints);
-      renderPapers('publications-list', d.publications);
-
-      // Teaching
-      (function renderTeaching() {
-        const container = document.getElementById('teaching-list');
-        container.innerHTML = '';
-        if (!Array.isArray(d.teaching) || !d.teaching.length) {
-          const p = document.createElement('p');
-          p.textContent = '—';
-          container.appendChild(p);
-          return;
-        }
-        const ul = document.createElement('ul');
-        d.teaching.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item;
-          ul.appendChild(li);
-        });
-        container.appendChild(ul);
-      })();
-
-      document.getElementById('year').textContent =
-        d.lastUpdatedYear || new Date().getFullYear();
-    })();
-  </script>
 </body>
 </html>
